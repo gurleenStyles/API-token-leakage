@@ -1,0 +1,13 @@
+playwright
+esprima
+requests
+PyGithub
+rich
+click
+flask
+fastapi
+uvicorn
+python-dotenv
+beautifulsoup4
+pytest
+lxml
