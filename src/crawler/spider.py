@@ -1,9 +1,13 @@
-import asyncio
+import asyncio #lets Python do multiple things at the same time (download 10 files simultaneously instead of one by one)
 import os
 from urllib.parse import urljoin, urlparse
 from playwright.async_api import async_playwright
 import aiohttp
 from rich.console import Console
+
+# It opens a real browser, visits a target website,
+# collects all the JavaScript file URLs it finds, 
+# then downloads them to your computer.
 
 console = Console()
 

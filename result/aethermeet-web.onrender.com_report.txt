@@ -1,0 +1,35 @@
+=== API Token Leakage Report ===
+Target: https://aethermeet-web.onrender.com/dashboard
+Total Secrets Found: 5
+
+----------------------------------------
+Type: Probable Config Secret
+Secret: name
+Validation: untested
+Severity: Low
+GitHub Exposed: No GITHUB_TOKEN
+----------------------------------------
+Type: Probable Config Secret
+Secret: disconnected
+Validation: untested
+Severity: Low
+GitHub Exposed: No GITHUB_TOKEN
+----------------------------------------
+Type: Probable Config Secret
+Secret: active
+Validation: untested
+Severity: Low
+GitHub Exposed: No GITHUB_TOKEN
+----------------------------------------
+Type: Probable Config Secret
+Secret: volatile
+Validation: untested
+Severity: Low
+GitHub Exposed: No GITHUB_TOKEN
+----------------------------------------
+Type: High Entropy String
+Secret: ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/
+Validation: untested
+Severity: Low
+GitHub Exposed: No GITHUB_TOKEN
+----------------------------------------

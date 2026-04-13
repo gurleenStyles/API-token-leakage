@@ -1,4 +1,5 @@
 import json
+import os
 from rich.console import Console
 from rich.table import Table
 
@@ -51,3 +52,20 @@ class SecurityReporter:
         with open(filepath, 'w', encoding='utf-8') as f:
             json.dump(report_data, f, indent=4)
         console.print(f"[green]Report saved to {filepath}[/green]")
+
+    def export_txt(self, filepath):
+        os.makedirs(os.path.dirname(filepath), exist_ok=True)
+        with open(filepath, 'w', encoding='utf-8') as f:
+            f.write("=== API Token Leakage Report ===\n")
+            f.write(f"Target: {self.target_url}\n")
+            f.write(f"Total Secrets Found: {len(self.findings)}\n\n")
+            for finding in self.findings:
+                f.write("-" * 40 + "\n")
+                f.write(f"Type: {finding.get('type')}\n")
+                f.write(f"Secret: {finding.get('secret')}\n")
+                f.write(f"Validation: {finding.get('validation', 'N/A')}\n")
+                f.write(f"Severity: {finding.get('severity', 'Info')}\n")
+                if "github_exposed" in finding:
+                    f.write(f"GitHub Exposed: {finding.get('github_exposed')}\n")
+            f.write("-" * 40 + "\n")
+        console.print(f"[green]Text report saved to {filepath}[/green]")

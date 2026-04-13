@@ -78,6 +78,11 @@ def scan(url, output, threads):
     if output:
         reporter.export_json(output)
         
+    # Automatically save report in a txt format in the result directory
+    parsed_url = url.replace("https://", "").replace("http://", "").split("/")[0]
+    txt_output_path = os.path.join("result", f"{parsed_url}_report.txt")
+    reporter.export_txt(txt_output_path)
+        
     # Cleanup memory/files
     try:
         shutil.rmtree(output_dir)
