@@ -6,6 +6,8 @@ import shutil
 from rich.console import Console
 from rich.panel import Panel
 
+
+
 from crawler.spider import crawl_and_download
 from analyzer.parser import JSAnalyzer
 from detector.engine import SecretDetector
