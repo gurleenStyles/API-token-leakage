@@ -16,6 +16,7 @@ class JSAnalyzer:
     def extract_strings_regex(self):
         """Extract all string literals from the JS file using Regex as a fallback/fast pass."""
         # Match single, double, and backtick quoted strings
+        #this function will extract the string from the js file 
         pattern = r"""(?x)
             (?:'(?:\\'|[^'])*') |
             (?:"(?:\\"|[^"])*") |
@@ -33,7 +34,9 @@ class JSAnalyzer:
     def extract_ast(self):
         """Use esprima to parse the JS and confidently extract String Literals and Object Expressions."""
         try:
-            # Tolerant mode to parse minified/incomplete files
+            #Tolerant mode to parse minified/incomplete files
+            #this function will parse the js file and extract the string from the js file
+            #this function will extract the string from the js file
             tree = esprima.parseScript(self.content, {"tolerant": True})
             self._walk_ast(tree)
             console.print(f"[green]Successfully parsed AST for {self.filepath}[/green]")
@@ -83,3 +86,6 @@ class JSAnalyzer:
             "strings": list(self.extracted_strings),
             "configs": self.config_objects
         }
+
+#It takes a downloaded JS file and tears it apart to extract every string and 
+#configuration object hidden inside it.

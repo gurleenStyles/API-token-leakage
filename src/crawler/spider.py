@@ -33,6 +33,7 @@ class WebCrawler:
             page = await context.new_page()
 
             # Listen for network responses to catch dynamically loaded JS
+            #this function will capture the js files
             page.on("response", self._handle_response)
 
             try:
@@ -73,6 +74,7 @@ class WebCrawler:
  
     #download file is the function that will download the file
     #saves js to the disk 
+    
     async def _download_file(self, session, url):
         """Download a single JS file."""
         try:
